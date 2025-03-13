@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMR 결과</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>BMR 계산 결과</h1>
+        
+        <nav class="nav-menu">
+            <a href="/">계산하기</a>
+            <a href="/history">이력 보기</a>
+        </nav>
+        
+        <div class="result-box">
+            <p>성별: <strong>{{ gender }} </strong></p>
+            <p>나이: <strong>{{ age }} </strong></p>
+            <p>신장: <strong>{{ height }} cm</strong></p>
+            <p>체중: <strong>{{ weight }} kg</strong></p>
+            <p>생활습관: <strong>{{ life_style }} </strong></p>
+            <p>★BMR★ : <strong>{{ expectation_bmr }}</strong></p>
+            <p class="success-message">결과가 데이터베이스에 저장되었습니다.</p>
+        </div>
+        
+        
+        
+        <a href="/" class="back-btn">다시 계산하기</a>
+    </div>
+</body>
+</html>

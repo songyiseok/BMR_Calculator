@@ -1,0 +1,194 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nanum Gothic', 'Malgun Gothic', sans-serif;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.nav-menu {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-menu a {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+.nav-menu a.active {
+    color: #4CAF50;
+    border-bottom: 3px solid #4CAF50;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* 라벨과 입력 필드 사이 간격 */
+    flex-wrap: wrap; /* 화면 크기에 따라 자동 줄바꿈 */
+    margin-bottom: 20px; /* 각 입력창 아래 간격 추가 */
+}
+/* 입력 필드 및 드롭다운 너비 조정 */
+.form-group input, 
+.form-group select {
+    flex: 1; /* 너비를 균등하게 조정 */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+/* 성별 선택 부분을 가로 정렬 */
+.gender-options {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.gender-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap; /* 줄바꿈 방지 */
+}
+label {
+    min-width: 100px; /* 라벨 길이를 맞춰 정렬 */
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error {
+    background-color: #ffdddd;
+    color: #ff0000;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.result-box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-left: 5px solid #4CAF50;
+}
+
+.category {
+    color: #4CAF50;
+}
+
+.success-message {
+    margin-top: 15px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.bmi-info {
+    margin-bottom: 20px;
+}
+
+.bmi-info h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.bmi-info ul {
+    padding-left: 20px;
+}
+
+.back-btn {
+    display: block;
+    text-align: center;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background-color: #0b7dda;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.history-table th, 
+.history-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.history-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.history-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.history-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

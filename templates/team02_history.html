@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기초대사량 이력</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('.tabnav a').click(function () {
+                let graphUrl = $(this).attr('data-url');
+                $('#graph-img').attr('src', graphUrl);
+                $('.tabnav a').removeClass('active');
+                $(this).addClass('active');
+                return false;
+            });
+
+            // 기본값: 남성 그래프 로드
+            $('.tabnav a:first').click();
+        });
+        $(document).ready(function () {
+            // ✅ 검색 기능
+            $("#searchInput").on("keyup", function () {
+                let value = $(this).val().toLowerCase();
+                $(".history-table tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+    
+            // ✅ 정렬 기능
+            $(".history-table thead th").click(function () {
+                let table = $(this).parents("table").eq(0);
+                let rows = table.find("tbody tr").toArray();
+                let index = $(this).index();
+                let ascending = $(this).data("ascending") || false;
+    
+                rows.sort(function (rowA, rowB) {
+                    let cellA = $(rowA).find("td").eq(index).text();
+                    let cellB = $(rowB).find("td").eq(index).text();
+    
+                    if (!isNaN(cellA) && !isNaN(cellB)) {
+                        return ascending ? cellA - cellB : cellB - cellA;
+                    } else {
+                        return ascending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+                    }
+                });
+    
+                $(this).data("ascending", !ascending);
+                table.find("tbody").append(rows);
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            $('.tabnav a').click(function () {
+                let graphUrl = $(this).attr('data-url'); // 클릭한 탭의 data-url 값 가져오기
+                $('#graph-img').attr('src', graphUrl);  // 이미지의 src 변경하여 그래프 변경
+                $('.tabnav a').removeClass('active');   // 기존 활성화된 탭 제거
+                $(this).addClass('active');             // 클릭한 탭을 활성화
+                return false; // 링크 이동 방지
+            });
+
+            // 기본값: 남성 그래프 로드
+            $('.tabnav a:first').click();
+        });
+    </script>
+    <style>
+        html, body {width: 100%;}
+        body, div, ul, li {margin: 0; padding: 0;}
+        ul, li {list-style: none;}
+
+        /* 탭 스타일 */
+        .tab {width: 600px; margin: auto; text-align: center;}
+        .tabnav {font-size: 0; width: 100%; border: 1px solid #ddd; display: flex; justify-content: center;}
+        .tabnav li {display: inline-block; height: 46px; text-align: center; border-right: 1px solid #ddd;}
+        .tabnav li a {position: relative; display: block; background: #f8f8f8; color: #000; padding: 0 30px; line-height: 46px; text-decoration: none; font-size: 16px;}
+        .tabnav li a:before {content: ""; position: absolute; left: 0; top: 0px; width: 100%; height: 3px;}
+        .tabnav li a.active:before {background: #7ea21e;}
+        .tabnav li a.active {border-bottom: 1px solid #fff;}
+        .tabnav li a:hover, .tabnav li a.active {background: #fff; color: #7ea21e;}
+        .graph-container {padding: 20px; border: 1px solid #ddd; border-top: none; text-align: center;}
+        /* 탭 네비게이션 */
+        .tabnav {display: flex; width: 100%; border-bottom: 1px solid #ddd;}
+        .tabnav li {width: 50%; text-align: center; position: relative;}
+        .tabnav li a {
+            display: block; 
+            /* 탭 버튼이 전체 영역을 클릭할 수 있도록 블록 요소로 변경 */
+            width: 100%;
+            background: #f8f8f8;
+            color: #000;
+            padding: 12px 0;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+            border-top: 3px solid transparent; /* 기본값은 투명 */
+        }
+        
+        /* 탭 클릭시 작동*/
+        .tabnav li a.active {
+            background: #fff;
+            color: #7ea21e;
+            border-top: 3px solid #7ea21e;
+            font-weight: bold;
+        }
+        
+        /* 마우스 호버 시 */
+        .tabnav li a:hover {
+            background: #fff;
+            color: #7ea21e;
+        }
+        /* 페이징 스타일 */
+        .pagination {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pagination a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 0 5px;
+            text-decoration: none;
+            color: white;
+            background: #7ea21e;
+            border-radius: 5px;
+        }
+        .pagination .page-info {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        .pagination a:hover {
+            background: #5a7d15;
+        }
+        /* 표 스타일 */
+.history-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 헤더 스타일 */
+.history-table thead {
+    background: #4CAF50; /* 연한 녹색 */
+    color: white;
+    text-transform: uppercase;
+}
+
+.history-table thead th {
+    padding: 14px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;  /* 정렬 가능하도록 포인터 추가 */
+    transition: background 0.3s;
+    color: black; 
+}
+
+.history-table thead th:hover {
+    background: #388E3C;
+}
+
+/* 본문 스타일 */
+.history-table tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background 0.2s;
+}
+
+.history-table tbody tr:nth-child(even) {
+    background: #f9f9f9; /* 짝수 줄 회색 배경 */
+}
+
+.history-table tbody tr:hover {
+    background: #d4edda; /* 마우스 오버 시 연한 초록색 */
+}
+
+/* 셀 스타일 */
+.history-table td {
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+/* ✅ 검색창 스타일 */
+.search-container {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* ✅ 검색 입력 필드 */
+.search-container input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #7ea21e;  /* 테두리 색상 */
+    border-radius: 25px;  /* 둥근 스타일 */
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding-left: 45px; /* 아이콘 공간 확보 */
+}
+
+/* ✅ 검색창 클릭 시 */
+.search-container input:focus {
+    border-color: #5a7d15;
+    box-shadow: 0px 3px 8px rgba(122, 181, 29, 0.4);
+}
+
+/* ✅ 돋보기 아이콘 스타일 (input의 왼쪽 안쪽 배치) */
+.search-container .search-icon {
+    position: absolute;
+    left: 12px;  /* 아이콘 왼쪽 위치 */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #5a7d15;
+    pointer-events: none; /* 클릭 방지 */
+    transition: color 0.3s ease-in-out;
+}
+
+/* ✅ 검색창 클릭 시 아이콘 색상 변경 */
+.search-container input:focus + .search-icon {
+    color: #4CAF50;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .history-table {
+        font-size: 14px;
+    }
+
+    .history-table thead {
+        display: none;
+    }
+
+    .history-table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    .history-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .history-table tbody td:last-child {
+        border-bottom: none;
+    }
+}
+h2 {
+    text-align: center; /* 가운데 정렬 */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>기초대사량 이력</h1>
+        
+        <nav class="nav-menu">
+            <a href="/">계산하기</a>
+            <a href="/history" class="active">이력 보기</a>
+        </nav>
+         <!-- ✅ 검색창 추가 -->
+         <div class="search-container">
+            <input type="text" id="searchInput" placeholder="검색어 입력 (성별, 나이, 생활습관 등)">
+        </div>
+        {% if records %}
+            <table class="history-table">
+                <thead>
+                    <tr>                
+                        <th>성별</th>
+                        <th>나이</th>
+                        <th>신장(cm)</th>
+                        <th>체중(kg)</th>
+                        <th>생활습관</th>
+                        <th>날짜</th>
+                        <th>결과(bmr)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in records %}
+                    <tr>
+                        <td>{{record.gender}}</td>
+                        <td>{{record.age}}</td>
+                        <td>{{record.height}}</td>
+                        <td>{{record.weight}}</td>
+                        <td>{{record.life_style}}</td>
+                        <td>{{ record.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                        <td>{{record.expectation_bmr}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="no-data">
+                <p>저장된 기록이 없습니다.</p>
+            </div>
+        {% endif %}
+
+        <h2>나이대별 평균 기초대사량 비교</h2>
+
+        <!-- 탭 메뉴 -->
+        <div class="tab">
+            <ul class="tabnav">
+                <li><a href="#" data-url="/plot/male">남성 그래프</a></li>
+                <li><a href="#" data-url="/plot/female">여성 그래프</a></li>
+            </ul>
+        </div>
+
+        <!-- 그래프 표시 -->
+        <div >
+            <img id="graph-img" src="/plot/male" alt="BMR 그래프">
+        </div>
+
+        <a href="/" class="back-btn">계산하기로 돌아가기</a>
+    </div>
+    <!-- 페이징 -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('history', page=page-1) }}" class="prev-btn">이전</a>
+        {% endif %}
+    
+        <span class="page-info">페이지 {{ page }} / {{ total_pages }}</span>
+    
+        {% if page < total_pages %}
+            <a href="{{ url_for('history', page=page+1) }}" class="next-btn">다음</a>
+        {% endif %}
+    </div>
+</body>
+</html>
