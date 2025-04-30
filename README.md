@@ -9,14 +9,16 @@
   <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white" />
 </p>
 
-Flask 기반 웹 애플리케이션으로, 사용자의 성별, 나이, 키, 체중, 생활습관 등의 정보를 바탕으로 기초대사량(BMR)을 계산하고 데이터를 시각화하는 서비스입니다.
-
 ## 프로젝트 기간
 기간 : 25/03/11~25/03/12
 
 ## 프로젝트 개요
-
 이 프로젝트는 사용자가 입력한 개인 정보를 기반으로 기초대사량을 계산하고, 데이터베이스에 저장하며, 저장된 데이터를 통해 연령대별 평균 BMR과 사용자의 BMR을 비교 시각화하는 웹 애플리케이션입니다.
+
+## 시연영상
+
+[BMR Calculator 시연 영상](https://www.youtube.com/watch?v=-jvTe9RzVHA)
+
 
 ## 주요 기능
 
@@ -81,7 +83,6 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
 
 <artifacts>
 <artifact id="profile-cards" type="text/markdown">
-
 <table>
   <tr>
     <td align="center">
@@ -113,13 +114,10 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
 </artifact>
 </artifacts>
 
-
-
-
 ## 설치 방법
 
 ### 사전 요구사항
-- Python 3.7+
+- Python 3.10.6
 - MariaDB/MySQL
 
 ### 설치 과정
@@ -129,7 +127,6 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
    git clone https://github.com/songyiseok/BMR_Calculator.git
    cd BMR_Calculator
    ```
-
 2. 필요한 패키지 설치:
    ```bash
    pip install flask pymysql matplotlib numpy pandas
@@ -149,10 +146,3 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
    ```
    http://localhost:5050
    ```
-
-## 시연영상
-
-[BMR Calculator 시연 영상](https://www.youtube.com/watch?v=-jvTe9RzVHA)
-
-
-
