@@ -77,9 +77,9 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
 
 | 이름 | 역할 |
 |------|------|
-| 권 | 팀장 ,프로젝트 총괄 |
-| 석 | 데이터 정렬화, 페이징처리, 검색기능 |
-| 송 | 계산기 로직 구현, 차트 |
+| 권순규 | 팀장 ,프로젝트 총괄 |
+| 석송이 | 데이터 정렬화, 페이징처리, 검색기능 |
+| 송지연 | 계산기 로직 구현, 차트 |
 
 <artifacts>
 <artifact id="profile-cards" type="text/markdown">
@@ -93,7 +93,6 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
         <sub><b>권순규</b></sub>
       </a>
       <br />
-      <sub>Front-End</sub>
     </td>
     <td align="center">
       <a href="https://github.com/songyiseok">
@@ -102,7 +101,6 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
         <sub><b>석송이</b></sub>
       </a>
       <br />
-      <sub>Front-End</sub>
     </td>
     <td align="center">
       <a href="https://github.com/ssuuoo12">
@@ -111,7 +109,6 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
         <sub><b>송지연</b></sub>
       </a>
       <br />
-      <sub>Front-End</sub>
     </td>
   </tr>
 </table>
