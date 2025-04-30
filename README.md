@@ -83,12 +83,12 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
 
 <artifacts>
 <artifact id="profile-cards" type="text/markdown">
-## 팀원 소개
+
 <table>
   <tr>
     <td align="center">
       <a href="https://github.com/SK-Kwon90">
-        <img src="프로필사진URL/SK-Kwon90.jpg" width="100px;" alt="권순규 프로필"/>
+        <img src="https://github.com/SK-Kwon90.jpg" width="100px;" alt="권순규 프로필"/>
         <br />
         <sub><b>권순규</b></sub>
       </a>
@@ -97,7 +97,7 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
     </td>
     <td align="center">
       <a href="https://github.com/songyiseok">
-        <img src="프로필사진URL/songyiseok.jpg" width="100px;" alt="석송이 프로필"/>
+        <img src="https://github.com/songyiseok.jpg" width="100px;" alt="석송이 프로필"/>
         <br />
         <sub><b>석송이</b></sub>
       </a>
@@ -106,7 +106,7 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
     </td>
     <td align="center">
       <a href="https://github.com/ssuuoo12">
-        <img src="프로필사진URL/ssuuoo12.jpg" width="100px;" alt="송지연 프로필"/>
+        <img src="https://github.com/ssuuoo12.jpg" width="100px;" alt="송지연 프로필"/>
         <br />
         <sub><b>송지연</b></sub>
       </a>
