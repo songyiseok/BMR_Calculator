@@ -11,6 +11,11 @@
 
 Flask 기반 웹 애플리케이션으로, 사용자의 성별, 나이, 키, 체중, 생활습관 등의 정보를 바탕으로 기초대사량(BMR)을 계산하고 데이터를 시각화하는 서비스입니다.
 
+## 프로젝트 기간
+기간 : 25/03/11~25/03/12
+설계 : 25/03/11
+구현 및 발표 : 25/03/11 ~ 25/03/12
+
 ## 프로젝트 개요
 
 이 프로젝트는 사용자가 입력한 개인 정보를 기반으로 기초대사량을 계산하고, 데이터베이스에 저장하며, 저장된 데이터를 통해 연령대별 평균 BMR과 사용자의 BMR을 비교 시각화하는 웹 애플리케이션입니다.
@@ -28,7 +33,7 @@ Flask 기반 웹 애플리케이션으로, 사용자의 성별, 나이, 키, 체
 | 영역 | 기술 |
 |------|------|
 | 백엔드 | Flask, Python, PyMySQL |
-| 프론트엔드 | HTML, CSS, JavaScript, jQuery |
+| 프론트엔드 | HTML, CSS, JavaScript |
 | 데이터베이스 | MariaDB/MySQL |
 | 데이터 시각화 | Matplotlib, NumPy |
 
@@ -72,9 +77,49 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
 
 | 이름 | 역할 |
 |------|------|
-| 권 | 프로젝트 총괄 |
+| 권 | 팀장 ,프로젝트 총괄 |
 | 석 | 데이터 정렬화, 페이징처리, 검색기능 |
-| 송 | 계산 로직, 차트 |
+| 송 | 계산기 로직 구현, 차트 |
+
+<artifacts>
+<artifact id="profile-cards" type="text/markdown">
+## 팀원 소개
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/SK-Kwon90">
+        <img src="프로필사진URL/SK-Kwon90.jpg" width="100px;" alt="권순규 프로필"/>
+        <br />
+        <sub><b>권순규</b></sub>
+      </a>
+      <br />
+      <sub>Front-End</sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/songyiseok">
+        <img src="프로필사진URL/songyiseok.jpg" width="100px;" alt="석송이 프로필"/>
+        <br />
+        <sub><b>석송이</b></sub>
+      </a>
+      <br />
+      <sub>Front-End</sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ssuuoo12">
+        <img src="프로필사진URL/ssuuoo12.jpg" width="100px;" alt="송지연 프로필"/>
+        <br />
+        <sub><b>송지연</b></sub>
+      </a>
+      <br />
+      <sub>Front-End</sub>
+    </td>
+  </tr>
+</table>
+</artifact>
+</artifacts>
+
+
+
 
 ## 설치 방법
 
@@ -110,9 +155,9 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
    http://localhost:5050
    ```
 
-## 스크린샷
+## 시연영상
 
-![BMR 계산기 메인 화면](https://github.com/songyiseok/BMR_Calculator/raw/master/screenshots/main.png)
-![BMR 결과 화면](https://github.com/songyiseok/BMR_Calculator/raw/master/screenshots/result.png)
-![BMR 이력 화면](https://github.com/songyiseok/BMR_Calculator/raw/master/screenshots/history.png)
+[BMR Calculator 시연 영상](https://www.youtube.com/watch?v=-jvTe9RzVHA)
+
+
 
