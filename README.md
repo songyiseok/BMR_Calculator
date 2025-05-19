@@ -32,7 +32,7 @@
 
 | 영역 | 기술 |
 |------|------|
-| 백엔드 | Flask, Python, PyMySQL |
+| 백엔드 | Flask, Python |
 | 프론트엔드 | HTML, CSS, JavaScript |
 | 데이터베이스 | MariaDB/MySQL |
 | 데이터 시각화 | Matplotlib, NumPy |
