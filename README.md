@@ -17,7 +17,7 @@
 
 ## 시연영상
 
-[BMR Calculator 시연 영상](https://www.youtube.com/watch?v=-jvTe9RzVHA)
+[BMR Calculator 시연 영상](https://www.youtube.com/watch?v=06BQE0mELiY)
 
 
 ## 주요 기능
