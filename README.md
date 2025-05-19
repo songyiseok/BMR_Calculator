@@ -118,7 +118,7 @@ BMR(Basal Metabolic Rate, 기초대사량)은 다음 공식을 사용하여 계�
 
 ### 사전 요구사항
 - Python 3.10.6
-- MariaDB/MySQL
+- MariaDB
 
 ### 설치 과정
 
